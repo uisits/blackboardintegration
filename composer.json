@@ -1,0 +1,16 @@
+{
+    "name": "uisits/blackboardintegration",
+    "description": "Allows interaction with the BlackBoard API",
+    "authors": [
+        {
+            "name": "UISITS",
+            "email": "techsupport@uis.edu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "uisits\\blackboardintegration\\": "src/"
+        }
+    }
+}
