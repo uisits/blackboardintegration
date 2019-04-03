@@ -1,18 +1,18 @@
-Installation:
-composer require uisits/blackboardintegration
+Installation:  
+composer require uisits/blackboardintegration  
 
-Usage:
-1. use uisits\blackboardintegration\Http\controllers\BlackboardintegrationController as bb;
-2. $bbinteract = new bb();
-3. Call the method that you need. 
+Usage:  
+1. use uisits\blackboardintegration\Http\controllers\BlackboardintegrationController as bb;  
+2. $bbinteract = new bb();  
+3. Call the method that you need  
 
-Example: 
-$classid = "123456"; 
-$token = ($bb->token_authorize())->access_token;
-$courseid = ($bb->getCourseIdbyCourseId($token, $classid))->id;
-$course = $bb->readCourse($token, $courseid);
+Example:   
+$classid = "123456";   
+$token = ($bb->token_authorize())->access_token;  
+$courseid = ($bb->getCourseIdbyCourseId($token, $classid))->id;  
+$course = $bb->readCourse($token, $courseid);  
 
-Available Methods:
+Available Methods:  
 - token_authorize(): creates and returns the token object
 - createDatasource($access_token): Creates and returns a new datasource 
 - readDatasource($access_token, $dsk_id): Gets and returns a datasource with id of $dsk_id
@@ -43,5 +43,5 @@ Available Methods:
 - updateMembership($access_token, $dsk_id, $course_id, $user_id, $membership_created): Updates and returns a membership with values of $membership_created and $dsk_id for user with $user_id in course with $course_id
 - deleteMembership($access_token, $course_id, $user_id): Deletes a membership for a user with $user_id and course with $course_id and returns True or False depending on success
 
-Resources:
+Resources:  
 Blackboard API: https://developer.blackboard.com/portal/displayApi
