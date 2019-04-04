@@ -3,14 +3,14 @@ composer require uisits/blackboardintegration
 
 Usage:  
 1. Include in your .env file (BB_KEY and BB_SECRET will need to be changed to your particular keys):   
-	BB_HOSTNAME = 'https://bbdev.uis.edu:443'
-	BB_KEY = 'xxxxxxxx' 
-	BB_SECRET = 'yyyyyyyy'
-	BB_AUTH_PATH = '/learn/api/public/v1/oauth2/token'
-	BB_DSK_PATH = '/learn/api/public/v1/dataSources'
-	BB_TERM_PATH = '/learn/api/public/v1/terms'
-	BB_COURSE_PATH = '/learn/api/public/v1/courses'
-	BB_USER_PATH = '/learn/api/public/v1/users'
+	BB_HOSTNAME = 'https://bbdev.uis.edu:443'   
+	BB_KEY = 'xxxxxxxx'    
+	BB_SECRET = 'yyyyyyyy'   
+	BB_AUTH_PATH = '/learn/api/public/v1/oauth2/token'   
+	BB_DSK_PATH = '/learn/api/public/v1/dataSources'   
+	BB_TERM_PATH = '/learn/api/public/v1/terms'   
+	BB_COURSE_PATH = '/learn/api/public/v1/courses'   
+	BB_USER_PATH = '/learn/api/public/v1/users'   
 2. use uisits\blackboardintegration\Http\controllers\BlackboardintegrationController as bb;  
 3. $bbinteract = new bb();  
 4. Call the method that you need  
