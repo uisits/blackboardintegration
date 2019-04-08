@@ -1,29 +1,41 @@
-Installation:  
-composer require uisits/blackboardintegration  
+Installation:
+- Step 1
+    ```composer require uisits/blackboardintegration```
+- Step 2
+    ``` php artisan vendor:publish --tag=bbconfig ```
+- Step 3
+    Add Service Provider to your config/app.php
+    ```
+    uisits\blackboardintegration\BlackboardintegrationServiceProvider::class,
+    ```
+- Step 4
+    Add Facades to your config/app.php
+    ```
+    'BlackBoard' => uisits\blackboardintegration\Facades\BlackBoard::class,
+    ```
+- Step 5
+    Configure your config/bbconfig.php file
+    Add the env variables to this file
 
-Usage:  
-1. Include in your .env file (BB_KEY and BB_SECRET will need to be changed to your particular keys):   
-	BB_HOSTNAME = 'https://bbdev.uis.edu:443'   
-	BB_KEY = 'xxxxxxxx'    
-	BB_SECRET = 'yyyyyyyy'   
-	BB_AUTH_PATH = '/learn/api/public/v1/oauth2/token'   
-	BB_DSK_PATH = '/learn/api/public/v1/dataSources'   
-	BB_TERM_PATH = '/learn/api/public/v1/terms'   
-	BB_COURSE_PATH = '/learn/api/public/v1/courses'   
-	BB_USER_PATH = '/learn/api/public/v1/users'   
-2. use uisits\blackboardintegration\Http\controllers\BlackboardintegrationController as bb;  
-3. $bbinteract = new bb();  
-4. Call the method that you need  
+**Usage:**
+ In your controller
+- ``` use BlackBoard; ```
+- ```
+    $token = BlackBoard::token_authorize();
+	dd($token);
+    ```
 
-Example:   
-$classid = "123456";   
-$token = ($bb->token_authorize())->access_token;  
-$courseid = ($bb->getCourseIdbyCourseId($token, $classid))->id;  
-$course = $bb->readCourse($token, $courseid);  
+**Example:**
+```
+    $classid = "123456";
+    $token = ($bb->token_authorize())->access_token;
+    $courseid = ($bb->getCourseIdbyCourseId($token, $classid))->id;
+    $course = $bb->readCourse($token, $courseid);
+```
 
-Available Methods:  
+Available Methods:
 - token_authorize(): creates and returns the token object
-- createDatasource($access_token): Creates and returns a new datasource 
+- createDatasource($access_token): Creates and returns a new datasource
 - readDatasource($access_token, $dsk_id): Gets and returns a datasource with id of $dsk_id
 - updateDatasource($access_token, $dsk_id): Updates and returns a datasource with id of $dsk_id
 - deleteDatasource($access_token, $dsk_id): Deletes datasource with id of $dsk_id and returns True or False depending on success
@@ -31,7 +43,7 @@ Available Methods:
 - readTerm($access_token, $term_id): Gets and returns a Term with an id of $term_id
 - updateTerm($access_token, $dsk_id, $term_id): Updates Term with a disk id of $dsk_id and term id of $term_id
 - deleteTerm($access_token, $term_id): Deletes Term with an id of $term_id
-- createCourse($access_token, $dsk_id, $term_id): Creates and returns a new course 
+- createCourse($access_token, $dsk_id, $term_id): Creates and returns a new course
 - readCourse($access_token, $course_id): Gets and returns a course with id of $course_id
 - getCourseIdbyCourseId($access_token, $course_id): Gets and returns the course that has the external id of $course_id
 - getCourseGradebookColumnIdbyExternalId($access_token, $course_id, $external_id): Gets and returns a gradebook column with the external id of $external_id from the course of $course_id
@@ -52,5 +64,5 @@ Available Methods:
 - updateMembership($access_token, $dsk_id, $course_id, $user_id, $membership_created): Updates and returns a membership with values of $membership_created and $dsk_id for user with $user_id in course with $course_id
 - deleteMembership($access_token, $course_id, $user_id): Deletes a membership for a user with $user_id and course with $course_id and returns True or False depending on success
 
-Resources:  
+Resources:
 Blackboard API: https://developer.blackboard.com/portal/displayApi
