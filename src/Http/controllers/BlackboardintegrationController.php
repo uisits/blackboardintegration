@@ -11,7 +11,7 @@ require_once 'classes/Coursegradeentry.php';
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Config;
+use Config; 
 
 class BlackboardintegrationController extends Controller
 {
