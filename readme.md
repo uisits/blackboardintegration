@@ -36,9 +36,9 @@ Installation:
 **Example:**
 ```
     $classid = "123456";
-    $token = ($bb->token_authorize())->access_token;
-    $courseid = ($bb->getCourseIdbyCourseId($token, $classid))->id;
-    $course = $bb->readCourse($token, $courseid);
+    $token = (BlackBoard::token_authorize())->access_token;
+    $courseid = (BlackBoard::getCourseIdbyCourseId($token, $classid))->id;
+    $course = BlackBoard::readCourse($token, $courseid);
 ```
 
 Available Methods:
