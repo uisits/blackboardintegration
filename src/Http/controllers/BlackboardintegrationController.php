@@ -11,6 +11,7 @@ require_once 'classes/Coursegradeentry.php';
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Config;
 
 class BlackboardintegrationController extends Controller
 {
@@ -25,7 +26,7 @@ class BlackboardintegrationController extends Controller
 		$token = new classes\Token();
 
 		try {
-			$response = \Httpful\Request::post(env('BB_HOSTNAME') . env('BB_AUTH_PATH'))
+			$response = \Httpful\Request::post(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_AUTH_PATH'))
 				->body('grant_type=client_credentials')
 				->addHeaders(['Content-Type' => 'application/x-www-form-urlencoded'])
 				->basicAuth(env('BB_KEY'), env('BB_SECRET'))
@@ -54,7 +55,7 @@ class BlackboardintegrationController extends Controller
 		$datasource = new classes\Datasource();
 
 		try {
-			$response = \Httpful\Request::post(env('BB_HOSTNAME') . env('BB_DSK_PATH'))
+			$response = \Httpful\Request::post(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_DSK_PATH'))
 				->body(json_encode($datasource))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -84,7 +85,7 @@ class BlackboardintegrationController extends Controller
 		$datasource = new classes\Datasource();
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_DSK_PATH') . '/' . $dsk_id)
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_DSK_PATH') . '/' . $dsk_id)
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -114,7 +115,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::patch(env('BB_HOSTNAME') . env('BB_DSK_PATH') . '/' . $dsk_id)
+			$response = \Httpful\Request::patch(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_DSK_PATH') . '/' . $dsk_id)
 				->body(json_encode($datasource))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -142,7 +143,7 @@ class BlackboardintegrationController extends Controller
 	{
 
 		try {
-			$response = \Httpful\Request::delete(env('BB_HOSTNAME') . env('BB_DSK_PATH') . '/' . $dsk_id)
+			$response = \Httpful\Request::delete(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_DSK_PATH') . '/' . $dsk_id)
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
@@ -173,7 +174,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::post(env('BB_HOSTNAME') . env('BB_TERM_PATH'))
+			$response = \Httpful\Request::post(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_TERM_PATH'))
 				->body(json_encode($term))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -203,7 +204,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_TERM_PATH') . '/' . $term_id)
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_TERM_PATH') . '/' . $term_id)
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -234,7 +235,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::patch(env('BB_HOSTNAME') . env('BB_TERM_PATH') . '/' . $term_id)
+			$response = \Httpful\Request::patch(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_TERM_PATH') . '/' . $term_id)
 				->body(json_encode($term))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -262,7 +263,7 @@ class BlackboardintegrationController extends Controller
 	{
 
 		try {
-			$response = \Httpful\Request::delete(env('BB_HOSTNAME') . env('BB_TERM_PATH') . '/' . $term_id)
+			$response = \Httpful\Request::delete(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_TERM_PATH') . '/' . $term_id)
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
@@ -294,7 +295,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::post(env('BB_HOSTNAME') . env('BB_COURSE_PATH'))
+			$response = \Httpful\Request::post(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH'))
 				->body(json_encode($course))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -328,7 +329,7 @@ class BlackboardintegrationController extends Controller
 		//dd(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id);
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id)
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id)
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -355,7 +356,7 @@ class BlackboardintegrationController extends Controller
 		$course = new classes\Course();
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/courseId:' . $course_id)
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/courseId:' . $course_id)
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -382,7 +383,7 @@ class BlackboardintegrationController extends Controller
 		$coursegrade = new classes\Coursegrade();
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns/externalId:' . $external_id)
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns/externalId:' . $external_id)
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -409,7 +410,7 @@ class BlackboardintegrationController extends Controller
 		$coursegrade = new classes\Coursegrade();
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns')
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns')
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -440,7 +441,7 @@ class BlackboardintegrationController extends Controller
 		$coursegrade->availability = new classes\Availability();
 
 		try {
-			$response = \Httpful\Request::post(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns')
+			$response = \Httpful\Request::post(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns')
 				->body(json_encode($coursegrade))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -469,7 +470,7 @@ class BlackboardintegrationController extends Controller
 		$coursegrade = new classes\Coursegrade();
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns/' . $column_id . '/users/' . $user_id)
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns/' . $column_id . '/users/' . $user_id)
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -500,7 +501,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::patch(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns/' . $column_id . '/users/' . $user_id)
+			$response = \Httpful\Request::patch(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/gradebook/columns/' . $column_id . '/users/' . $user_id)
 				->body(json_encode($coursegradeentry))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -536,7 +537,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::patch(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id)
+			$response = \Httpful\Request::patch(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id)
 				->body(json_encode($course))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -564,7 +565,7 @@ class BlackboardintegrationController extends Controller
 	{
 
 		try {
-			$response = \Httpful\Request::delete(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id)
+			$response = \Httpful\Request::delete(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id)
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
@@ -597,7 +598,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::post(env('BB_HOSTNAME') . env('BB_USER_PATH'))
+			$response = \Httpful\Request::post(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_USER_PATH'))
 				->body(json_encode($user))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -627,7 +628,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_USER_PATH') . '/' . $user_id)
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_USER_PATH') . '/' . $user_id)
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -655,7 +656,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_USER_PATH') . '/userName:' . $user_id . '/courses')
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_USER_PATH') . '/userName:' . $user_id . '/courses')
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -682,7 +683,7 @@ class BlackboardintegrationController extends Controller
 		$user = new classes\User();
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_USER_PATH') . '/userName:' . $user_id)
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_USER_PATH') . '/userName:' . $user_id)
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -713,7 +714,7 @@ class BlackboardintegrationController extends Controller
 		$user->dataSourceId = $dsk_id;
 
 		try {
-			$response = \Httpful\Request::patch(env('BB_HOSTNAME') . env('BB_USER_PATH') . '/' . $user_id)
+			$response = \Httpful\Request::patch(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_USER_PATH') . '/' . $user_id)
 				->body(json_encode($user))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -741,7 +742,7 @@ class BlackboardintegrationController extends Controller
 	{
 
 		try {
-			$response = \Httpful\Request::delete(env('BB_HOSTNAME') . env('BB_USER_PATH') . '/' . $user_id)
+			$response = \Httpful\Request::delete(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_USER_PATH') . '/' . $user_id)
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
@@ -774,7 +775,7 @@ class BlackboardintegrationController extends Controller
 		$membership->courseId = $course_id;
 
 		try {
-			$response = \Httpful\Request::put(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id . '/users/' . $user_id)
+			$response = \Httpful\Request::put(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/users/' . $user_id)
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
 				->body(json_encode($membership))
@@ -804,7 +805,7 @@ class BlackboardintegrationController extends Controller
 
 
 		try {
-			$response = \Httpful\Request::get(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id . '/users/' . $user_id)
+			$response = \Httpful\Request::get(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/users/' . $user_id)
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
 				->send();
@@ -836,7 +837,7 @@ class BlackboardintegrationController extends Controller
 		$membership->created = $membership_created;
 
 		try {
-			$response = \Httpful\Request::patch(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id . '/users/' . $user_id)
+			$response = \Httpful\Request::patch(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/users/' . $user_id)
 				->body(json_encode($membership))
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
@@ -864,7 +865,7 @@ class BlackboardintegrationController extends Controller
 	{
 
 		try {
-			$response = \Httpful\Request::delete(env('BB_HOSTNAME') . env('BB_COURSE_PATH') . '/' . $course_id . '/users/' . $user_id)
+			$response = \Httpful\Request::delete(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/users/' . $user_id)
 				->addHeaders(['Content-Type' => 'application/json'])
 				->addHeader('Authorization', "Bearer $access_token")
 				->expectsJson()
