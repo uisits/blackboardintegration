@@ -15,7 +15,15 @@ Installation:
     ```
 - Step 5
     Configure your config/bbconfig.php file
-    Add the env variables to this file
+    Add the following env variables to this file  
+    BB_HOSTNAME = 'https://bbdev.uis.edu:443'  
+    BB_KEY = 'xxxxxxxx'
+    BB_SECRET = 'yyyyyyyy'  
+    BB_AUTH_PATH = '/learn/api/public/v1/oauth2/token'  
+    BB_DSK_PATH = '/learn/api/public/v1/dataSources'  
+    BB_TERM_PATH = '/learn/api/public/v1/terms'  
+    BB_COURSE_PATH = '/learn/api/public/v1/courses'  
+    BB_USER_PATH = '/learn/api/public/v1/users'  
 
 **Usage:**
  In your controller
@@ -28,9 +36,9 @@ Installation:
 **Example:**
 ```
     $classid = "123456";
-    $token = ($bb->token_authorize())->access_token;
-    $courseid = ($bb->getCourseIdbyCourseId($token, $classid))->id;
-    $course = $bb->readCourse($token, $courseid);
+    $token = (BlackBoard::token_authorize())->access_token;
+    $courseid = (BlackBoard::getCourseIdbyCourseId($token, $classid))->id;
+    $course = BlackBoard::readCourse($token, $courseid);
 ```
 
 Available Methods:
