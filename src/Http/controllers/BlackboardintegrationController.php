@@ -37,14 +37,14 @@ class BlackboardintegrationController extends Controller
 				#print " Authorize Application...\n";
 				$token = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();			
 		}
 
 		return $token;
@@ -67,14 +67,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Create Datasource...\n";
 				$datasource = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $datasource;
@@ -94,14 +94,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Read Datasource...\n";
 				$datasource = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $datasource;
@@ -126,14 +126,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Update Datasource...\n";
 				$datasource = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $datasource;
@@ -152,14 +152,14 @@ class BlackboardintegrationController extends Controller
 			if (204 == $response->code) {
 				print "Datasource Deleted";
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return FALSE;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return FALSE;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return FALSE;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return TRUE;
@@ -185,14 +185,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Create Term...\n";
 				$term = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $term;
@@ -213,14 +213,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Read Term...\n";
 				$term = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $term;
@@ -246,14 +246,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Update Term...\n";
 				$term = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $term;
@@ -272,14 +272,14 @@ class BlackboardintegrationController extends Controller
 			if (204 == $response->code) {
 				print "Term Deleted";
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return FALSE;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return FALSE;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return FALSE;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return TRUE;
@@ -309,14 +309,14 @@ class BlackboardintegrationController extends Controller
 				#print "\n Create Course...\n";
 				$course = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $course;
@@ -338,14 +338,14 @@ class BlackboardintegrationController extends Controller
 				#print "\n Read Course...\n";
 				$course = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $course;
@@ -364,14 +364,14 @@ class BlackboardintegrationController extends Controller
 			if (200 == $response->code) {
 				$course = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $course;
@@ -392,14 +392,14 @@ class BlackboardintegrationController extends Controller
 				$coursegrade = json_decode(json_encode($response->body));
 				$result = $coursegrade->id;
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $result;
@@ -418,14 +418,14 @@ class BlackboardintegrationController extends Controller
 			if (200 == $response->code) {
 				$coursegrade = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $coursegrade;
@@ -452,14 +452,14 @@ class BlackboardintegrationController extends Controller
 				#print "\n Create Course Gradebook Column...\n";
 				$coursegrade = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $coursegrade;
@@ -478,14 +478,14 @@ class BlackboardintegrationController extends Controller
 			if (200 == $response->code) {
 				$coursegrade = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $coursegrade;
@@ -512,14 +512,14 @@ class BlackboardintegrationController extends Controller
 				#print "\n Update Course Gradebook User Grade...\n";
 				$coursegradeentry = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $coursegradeentry;
@@ -548,14 +548,14 @@ class BlackboardintegrationController extends Controller
 				#print "\n Update Course...\n";
 				$course = json_decode(json_encode($response->body));
 			} else {
+				return json_decode(json_encode($response->body));
 				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $course;
@@ -574,14 +574,14 @@ class BlackboardintegrationController extends Controller
 			if (204 == $response->code) {
 				print "Course Deleted";
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return FALSE;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return FALSE;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return FALSE;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return TRUE;
@@ -609,14 +609,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Create User...\n";
 				$user = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $user;
@@ -637,14 +637,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Read User...\n";
 				$user = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $user;
@@ -665,14 +665,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Read User Courses...\n";
 				$membership = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $membership;
@@ -691,14 +691,14 @@ class BlackboardintegrationController extends Controller
 			if (200 == $response->code) {
 				$user = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $user;
@@ -725,14 +725,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Update User...\n";
 				$user = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $user;
@@ -751,14 +751,14 @@ class BlackboardintegrationController extends Controller
 			if (204 == $response->code) {
 				print "User Deleted";
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return FALSE;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return FALSE;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return FALSE;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return TRUE;
@@ -786,14 +786,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Create Membership...\n";
 				$membership = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $membership;
@@ -814,14 +814,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Read Membership...\n";
 				$membership = json_decode(json_encode($response->body));
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $membership;
@@ -848,14 +848,14 @@ class BlackboardintegrationController extends Controller
 				//print "\n Update Membership...\n";
 				$membership = json_decode($response->getBody());
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return false;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return false;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return false;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return $membership;
@@ -874,14 +874,14 @@ class BlackboardintegrationController extends Controller
 			if (204 == $response->code) {
 				print "Membership Deleted";
 			} else {
-				print 'Unexpected HTTP status: ' . $response->code;
-				$BbRestException = json_decode(json_encode($response->body));
-				var_dump($BbRestException);
-				return FALSE;
+				return json_decode(json_encode($response->body));
+				// print 'Unexpected HTTP status: ' . $response->code;
+				// $BbRestException = json_decode(json_encode($response->body));
+				// var_dump($BbRestException);
+				// return FALSE;
 			}
 		} catch (Exception $e) {
-			print 'Error: ' . $e->getMessage();
-			return FALSE;
+			return 'Error: ' . $e->getMessage();
 		}
 
 		return TRUE;
