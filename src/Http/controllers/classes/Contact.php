@@ -1,5 +1,5 @@
 <?php
-namespace uisits\blackboardintegration\Http\controllers\classes;
+namespace uisits\blackboardintegration\Http\Controllers\classes;
 class Contact
 {
 	public $homePhone = '2025551212';

@@ -11,7 +11,7 @@ Installation:
 - Step 4
     Add Facades to your config/app.php
     ```
-    'BlackBoard' => uisits\blackboardintegration\Facades\BlackBoard::class,
+    'Blackboard' => uisits\blackboardintegration\Facades\Blackboard::class,
     ```
 - Step 5
     Configure your config/bbconfig.php file
@@ -29,7 +29,7 @@ Installation:
  In your controller
 - ``` use BlackBoard; ```
 - ```
-    $token = BlackBoard::token_authorize();
+    $token = Blackboard::token_authorize();
 	dd($token);
     ```
 

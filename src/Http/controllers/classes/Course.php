@@ -1,5 +1,5 @@
 <?php
-namespace uisits\blackboardintegration\Http\controllers\classes;
+namespace uisits\blackboardintegration\Http\Controllers\classes;
 class Course {
 	public $id;
 	public $externalId = 'BB-TEST';

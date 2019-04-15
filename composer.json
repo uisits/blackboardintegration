@@ -1,7 +1,7 @@
 {
     "name": "uisits/blackboardintegration",
 	"license": "MIT",
-    "description": "Allows interaction with the BlackBoard API",
+    "description": "Allows interaction with the Blackboard API",
     "authors": [
         {
             "name": "UISITS",
