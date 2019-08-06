@@ -765,13 +765,13 @@ class BlackboardintegrationController extends Controller
 	}
 
 
-	public function createMembership($access_token, $dsk_id, $course_id, $user_id)
+	public function createMembership($access_token, $dsk_id, $course_id, $user_id, $course_role)
 	{
 		$membership = new classes\Membership();
 
 		$membership->dataSourceId = $dsk_id;
 		$membership->availability = new classes\Availability();
-		$membership->courseRoleId = 'Student';
+		$membership->courseRoleId = $course_role;
 		//$membership->userId = $user_id;
 		//$membership->courseId = $course_id;
 
