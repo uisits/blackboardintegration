@@ -770,9 +770,12 @@ class BlackboardintegrationController extends Controller
 		$membership = new classes\Membership();
 
 		$membership->dataSourceId = $dsk_id;
-		$membership->availability = new Availability();
-		$membership->userId = $user_id;
-		$membership->courseId = $course_id;
+		$membership->availability = new classes\Availability();
+		$membership->courseRoleId = 'Student';
+		//$membership->userId = $user_id;
+		//$membership->courseId = $course_id;
+
+		//dump($membership);
 
 		try {
 			$response = \Httpful\Request::put(config('bbconfig.BB_HOSTNAME') . config('bbconfig.BB_COURSE_PATH') . '/' . $course_id . '/users/' . $user_id)
@@ -781,6 +784,8 @@ class BlackboardintegrationController extends Controller
 				->body(json_encode($membership))
 				->expectsJson()
 				->send();
+
+	//dump($response);
 
 			if (201 == $response->code) {
 				//print "\n Create Membership...\n";
