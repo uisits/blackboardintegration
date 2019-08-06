@@ -2,13 +2,13 @@
 namespace uisits\blackboardintegration\Http\Controllers\classes;
 class Membership
 	{
-		public $userId = '';
+		//public $userId = '';
 
-		public $courseId = '';
+		//public $courseId = '';
 
 		public $dataSourceId = '';
 
-		public $created = '';
+		//public $created = '';
 
 		public $availability = '';
 
